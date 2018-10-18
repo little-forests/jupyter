@@ -46,6 +46,12 @@ matchingTable = pd.read_excel(path_matchingTable)
 matchingTable['产品型号'] = matchingTable['产品型号'].astype(str)
 result = pd.merge(dfs,matchingTable[['二级类目','三级类目','产品型号']],how='left',on=['产品型号'])
 
+#透视表（假设有4个类目），求四级类目下的订单“总金额"及"平均金额"
+pd.pivot_table(result, index=['一级类目','二级类目','三级类目','四级类目'],values=['买家实际支付金额'],aggfunc=[np.sum,np.mean])
+
+
+
+
 os.chdir(path_in)
 #result.to_csv('最终数据.csv',index=False,encoding='utf_8_sig')
 result.to_excel('最终数据.xlsx',index=False)
