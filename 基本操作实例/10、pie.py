@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-path = r"C:\Users\x\Desktop\pandas操作原数据\10、pie\tips.csv"
+path = r"C:\Users\x\Desktop\pandas操作原数据\10、pie + heatmap\tips.csv"
 df = pd.read_csv(path, engine='python', encoding='utf_8_sig')
 
 day = df.groupby('day').size()
